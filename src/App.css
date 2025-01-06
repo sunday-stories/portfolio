@@ -1,0 +1,48 @@
+/* src/index.css or src/App.css */
+nav {
+    background-color: #333;
+    padding: 10px;
+  }
+  
+  nav ul {
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  nav ul li {
+    margin: 0 15px;
+  }
+  
+  nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+  }
+  
+  section {
+    padding: 150px;
+    height: 100vh; /* Makes each section take up full viewport height */
+  }
+  /* In your PageWrapper.module.css or App.css */
+.container {
+  overflow: hidden;  /* Prevent scrollbars from appearing */
+  position: relative;
+}
+
+.sections {
+  overflow: scroll;  /* Enable scrolling */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;  /* IE and Edge */
+}
+
+.sections::-webkit-scrollbar {
+  display: none;  /* Hide the scrollbar in Webkit browsers */
+}
+/* Global styles (e.g., in App.css) */
+html, body {
+  overflow: hidden;  /* Hide scrollbars */
+  height: 100%;      /* Ensure the body takes up full height */
+  margin: 0;         /* Remove default margin */
+}

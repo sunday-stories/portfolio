@@ -1,0 +1,121 @@
+/* General Section Styles */
+.section {
+    padding: 4rem 2rem;
+    background: linear-gradient(135deg, #e0f7fa, #ffffff);
+    color: #374151;
+}
+
+.sectionTitle {
+    font-size: 3rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 3rem;
+    color: #00796b;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Grid Layout */
+.grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+@media (min-width: 768px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Project Card */
+.card {
+    background: linear-gradient(135deg, #ffffff, #f7f7f7);
+    padding: 2rem;
+    border-radius: 0.75rem;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.cardTitle {
+    font-size: 1.75rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    color: #00574b;
+}
+
+.cardDescription {
+    font-size: 1.125rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    color: #374151;
+}
+
+/* Slideshow */
+.slideshowContainer {
+    position: relative;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.projectSlideshowImage {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+.projectSlideshowImage:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
+}
+
+/* Button for More Projects */
+.buttonContainer {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.viewMoreButton {
+    display: inline-block;
+    padding: 0.75rem 2rem;
+    background-color: #00796b;
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.viewMoreButton:hover {
+    background-color: #00574b;
+    transform: translateY(-3px);
+}
+
+/* Add Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.card {
+    animation: fadeIn 0.8s ease-in-out;
+}
+
+.projectSlideshowImage {
+    animation: fadeIn 0.5s ease-in-out;
+}

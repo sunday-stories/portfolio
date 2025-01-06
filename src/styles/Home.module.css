@@ -1,0 +1,303 @@
+/* Existing styles retained */
+.homeContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px;
+    background: rgba(0, 0, 0, 0.5);
+    height: 100vh;
+    animation: fadeIn 1.5s ease-in-out;
+    overflow: visible;
+    position: relative; /* Relative for content layering */
+    z-index: 25; /* Ensures it layers correctly above the canvas */
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.textContent {
+    max-width: 600px;
+    padding-right: 40px;
+    position: relative; /* Allows z-index control */
+    z-index: 30; /* Higher than canvas */
+    color: #fffefe;
+}
+
+.title {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 2rem;
+    font-weight: normal;
+    font-style: normal;
+    color: #ffffff;
+    margin-bottom: 20px;
+    animation: slideIn 1s ease-in-out;
+    z-index: 30; /* Above canvas */
+}
+.highlight {
+    color: #0bc4f7;
+    font: 1em 'Times New Roman', Times, serif;
+    font-weight: bolder;
+    font-style:initial;
+    font-size: 5rem;
+    padding: 5px 10px;
+    border-radius: 50%;
+}
+@keyframes slideIn {
+    from {
+        transform: translateX(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.description {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1.2rem;
+    color: #fafafa;
+    line-height: 1.6;
+    margin-top: 10px;
+    
+    animation-delay: 0.5s;
+    
+}
+
+.imageContainer {
+    flex-shrink: 0;
+    display: inline-block;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    animation: fadeInImage 1.5s ease-in-out;
+    position: relative;
+    border-radius: 50%;
+}
+
+@keyframes fadeInImage {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.imageContainer:hover {
+    transform: perspective(500px) scale(1.1) rotateY(60deg);
+    box-shadow: 0 0 15px 5px rgba(255, 255, 255, 0.7); 
+}
+
+.profileImage {
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.4s ease;
+   
+}
+
+.profileImage:hover {
+    transform: scale(1.5) rotate(6deg) ;
+}
+
+.ctaButton {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #fff;
+    background-color: #2b2d42;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    animation: fadeInButton 2s ease-in-out;
+    z-index: 30; 
+}
+
+@keyframes fadeInButton {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.ctaButton:hover {
+    background-color: #8d99ae;
+    transform: scale(1.1);
+    position: relative; /* Allows z-index */
+    z-index: 30; /* Above canvas */
+}
+
+/* Secondary Button Styles */
+.secondaryButton {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #f8f8f8;
+    background-color: transparent;
+    border: 1px solid #ffffff;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: color 0.3s ease, background-color 0.3s ease, transform 0.3s ease;
+    position: relative; /* Allows z-index */
+    z-index: 30; /* Above canvas */
+}
+
+.secondaryButton:hover {
+    background-color: #2b2d42;
+    color: #fff;
+    transform: scale(1.1);
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .homeContainer {
+        flex-direction: column;
+        text-align: center;
+        padding: 20px;
+    }
+
+    .textContent {
+        padding-right: 0;
+    }
+
+    .title {
+        font-size: 2.5rem;
+    }
+
+    .profileImage {
+        width: 200px;
+        height: 200px;
+    }
+
+    .description {
+        font-size: 1rem;
+    }
+}
+
+@keyframes gradientBackground {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    z-index: 10; /* Below all content but above the main background */
+    background: linear-gradient(-45deg, #00dbf8, #005bf7, #000000, #f8fafa);
+    background-size: 400% 400%;
+    animation: gradientBackground 5s ease infinite;
+}
+
+.canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 20; /* Ensures it's above background but below content */
+    pointer-events: visibleFill ; /* Allows interactions to pass through */
+    background: rgba(0, 0, 0, 0.6); /* Subtle blend with transparency */
+}
+
+.parallax {
+    position: absolute;
+    transform: translate(-100%, -100%);
+    will-change: transform;
+    transition: transform 0.1s ease-out;
+}
+
+/* Floating Social Media Icons */
+.socialIcons {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    border: #ddd;
+    display: flex;
+    gap: 15px;
+    z-index: 40;
+}
+.iconLink {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+}
+.iconLink:hover .customIcon {
+    transform: scale(1.1); /* Optional hover effect */
+}
+.socialIcons a {
+    font-size: 1.5rem;
+    color: #ffffff;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.socialIcons a:hover {
+    color: #ef233c;
+    transform: scale(1.2);
+}
+
+/* Typed Animation (Dynamic Title) */
+.typed {
+    font-size: 1.5rem;
+    color: #8d99ae;
+    animation: fadeInText 1.5s ease-in-out;
+}
+
+@keyframes fadeInText {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* 3D Card Effect (Hover) */
+.imageContainer:hover {
+    transform: perspective(500px) scale(1.1) rotateY(300deg);
+    box-shadow: 0 0 15px 5px rgba(255, 255, 255, 0.7);
+}
+
+.canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+
+
+.customIcon {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}

@@ -1,0 +1,43 @@
+/* PageWrapper.module.css */
+
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    overflow: hidden; /* Hide scrollbars here */
+    position: relative;
+}
+
+.sections {
+    flex-grow: 1;
+    overflow: scroll; /* Hide scrollbars here */
+    position: relative;
+    height: 100%;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none;  /* IE and Edge */
+}
+.sections::-webkit-scrollbar {
+    display: none;  /* Hide the scrollbar in Webkit browsers */
+}
+.page {
+    min-height: 100vh; /* Ensure each page takes up at least the full viewport height */
+    padding: 20px;
+    box-sizing: border-box;
+}
+/* Global styles (e.g., in App.css) */
+html {
+    scroll-behavior: smooth;
+}
+/* In your global CSS file (e.g., App.css) */
+body {
+    overflow-x: hidden; /* Prevent horizontal scroll */
+}
+/* PageWrapper.module.css */
+.page {
+    min-height: 100vh;
+    padding: 20px;
+    margin: 0; /* Remove margins */
+    box-sizing: border-box;
+}
+/* Global styles (e.g., in App.css) */
+

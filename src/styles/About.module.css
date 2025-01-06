@@ -1,0 +1,160 @@
+/* src/styles/About.module.css */
+
+.aboutContainer {
+    display: flex;
+    flex-direction:space-between;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 50px;
+    background: linear-gradient(135deg, #000000, #008cff);
+    perspective: 1000px; /* Ensures 3D depth */
+    overflow: visible;
+    animation: fadeInAbout 1.5s ease-in-out;
+}
+
+@keyframes fadeInAbout {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.card {
+    background: linear-gradient(145deg, #0095ff, #ffffff);
+    padding: 2rem;
+    border-radius: 0.75rem;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), inset 0 -2px 4px rgba(255, 255, 255, 0.6);
+    transform-style: preserve-3d; /* Enables proper 3D rendering */
+    transition: transform 0.5s, box-shadow 0.5s;
+    width: 80%;
+    max-width: 800px;
+    margin: 29px;
+    text-align: center;
+}
+
+.card:hover {
+    transform:  scale(1.05);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2), inset 0 -3px 6px rgba(255, 255, 255, 0.8);
+}
+
+.card h2 {
+    font-size: 2rem;
+    color: #030303;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    animation: slideInTitle 1s ease-in-out;
+}
+
+@keyframes slideInTitle {
+    from {
+        transform: translateX(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.card p {
+    font-size: 1.2rem;
+    color: #000000;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    animation: fadeInText 1.5s ease-in-out;
+}
+
+@keyframes fadeInText {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.card a {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #00bbff;
+    background-color: #000000;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.card a:hover {
+    background-color: #000000;
+    transform: scale(1.1);
+}
+
+/* Enhanced 3D Effects */
+.cardContent {
+    transform: translateZ(50px);
+}
+
+.cardContent h3 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.cardContent ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.cardContent ul li {
+    font-size: 1rem;
+    color: #0a91ff;
+    padding: 5px 0;
+    line-height: 1.5;
+}
+
+.cardContent ul li::before {
+    content: '✓';
+    color: #000000;
+    margin-right: 10px;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .aboutContainer {
+        padding: 20px;
+    }
+
+    .card {
+        width: 100%;
+        transform: none; /* Disable 3D effect on smaller screens */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .card h2 {
+        font-size: 1.8rem;
+    }
+
+    .card p {
+        font-size: 1rem;
+    }
+
+    .cardContent h3 {
+        font-size: 1.2rem;
+    }
+
+    .cardContent ul li {
+        font-size: 0.9rem;
+    }
+}
